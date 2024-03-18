@@ -9,7 +9,7 @@ ANCHO_VENTANA, ALTO_VENTANA = 680, 480
 VENTANA_PRINCIPAL = pygame.display.set_mode((ANCHO_VENTANA, ALTO_VENTANA))
 pygame.display.set_caption("Las aventuras de Juan")
 
-cartero = Personaje(nombre="Juan", objeto_spritesheets=sprites, coordenadas=(100, 250), velocidad=2)
+cartero = Personaje(nombre="Juan", objeto_spritesheets=sprites, coordenadas=(100, 250), velocidad=2, escenario_actual=escenario_inicio)
 
 reloj = pygame.time.Clock()
 
@@ -25,7 +25,7 @@ while juego_terminado != True:
     VENTANA_PRINCIPAL.fill((255, 255, 255))
 
     #bloque.draw(VENTANA_PRINCIPAL)
-    bloques_escenario.draw(VENTANA_PRINCIPAL)
+    escenario_inicio.draw(VENTANA_PRINCIPAL)
 
     #cartero.draw(VENTANA_PRINCIPAL)
     cartero.update(VENTANA_PRINCIPAL)
