@@ -6,7 +6,9 @@ def recortar_imagen(imagen_principal, coordenada_X, coordenada_Y, ancho, alto):
     return imagen_principal.subsurface(pygame.Rect(coordenada_X, coordenada_Y, ancho, alto))
 
 class Personaje(pygame.sprite.Sprite):
-    def __init__(self, nombre, objeto_spritesheets, coordenadas, velocidad):
+    def __init__(self, nombre, objeto_spritesheets, coordenadas, velocidad, escenario_actual):
+
+        self.ubicacion = escenario_actual
         self.nombre = nombre
         self.velocidad = velocidad
         self.velocidad_fotograma = 0.3
@@ -104,4 +106,3 @@ for hojas_sprites in range(0, 4):
     indice_animacion += 1
 
     cordenada_y_de_corte += 50
-
