@@ -31,48 +31,41 @@ class Personaje(pygame.sprite.Sprite):
 
     def update(self, ventana_juego):
         eventos = pygame.key.get_pressed()
-
-        self.direccion_movimiento = verificar_colisiones([self.rect.top, self.rect.bottom], [self.rect.left, self.rect.right])
         
         #mover el personaje hacia la izquierda
 
-        if self.direccion_movimiento == "izquierda":
-            if eventos[pygame.K_LEFT]:
-                self.ejecutar_animacion = True
-                self.rect.move_ip(-self.velocidad, 0)
-                self.imagenes_animacion = self.sprite_sheets["correr_izquierda"]
-                self.draw(ventana_juego)
-            
-            else: self.ejecutar_animacion = False
+        
+        if eventos[pygame.K_LEFT]:
+            self.ejecutar_animacion = True
+            self.rect.move_ip(-self.velocidad, 0)
+            self.imagenes_animacion = self.sprite_sheets["correr_izquierda"]
+            self.draw(ventana_juego)
 
         #mover el personaje hacia la derecha
-        if self.direccion_movimiento == "derecha":
-            if eventos[pygame.K_RIGHT]:
-                self.ejecutar_animacion = True
-                self.rect.move_ip(self.velocidad, 0)
-                self.imagenes_animacion = self.sprite_sheets["correr_derecha"]
-                self.draw(ventana_juego)
-            
-            else: self.ejecutar_animacion = False
+         
+        elif eventos[pygame.K_RIGHT]:
+            self.ejecutar_animacion = True
+            self.rect.move_ip(self.velocidad, 0)
+            self.imagenes_animacion = self.sprite_sheets["correr_derecha"]
+            self.draw(ventana_juego)
         #mover el personaje hacia arriba
-        if self.direccion_movimiento == "arriba":
-            if eventos[pygame.K_UP]:
-                self.ejecutar_animacion = True
-                self.rect.move_ip(0, -self.velocidad)
-                self.imagenes_animacion = self.sprite_sheets["correr_arriba"]
-                self.draw(ventana_juego)
-            
-            else: self.ejecutar_animacion = False
+         
+        elif eventos[pygame.K_UP]:
+            self.ejecutar_animacion = True
+            self.rect.move_ip(0, -self.velocidad)
+            self.imagenes_animacion = self.sprite_sheets["correr_arriba"]
+            self.draw(ventana_juego)
 
         #mover el personaje hacia abajo
-        if self.direccion_movimiento == "abajo":
-            if eventos[pygame.K_DOWN]:
-                self.ejecutar_animacion = True
-                self.rect.move_ip(0, self.velocidad)
-                self.imagenes_animacion = self.sprite_sheets["correr_abajo"]
-                self.draw(ventana_juego)
-            
-            else: self.ejecutar_animacion = False
+
+        elif eventos[pygame.K_DOWN]:
+            self.ejecutar_animacion = True
+            self.rect.move_ip(0, self.velocidad)
+            self.imagenes_animacion = self.sprite_sheets["correr_abajo"]
+            self.draw(ventana_juego)
+
+        else:
+            self.ejecutar_animacion = False
 
         if self.ejecutar_animacion == False:
             ventana_juego.blit(self.sprite_sheets["correr_abajo"][0], self.rect)
