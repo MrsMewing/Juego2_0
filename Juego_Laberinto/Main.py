@@ -4,7 +4,7 @@ import pygame
 
 pygame.init()
 
-ANCHO_VENTANA, ALTO_VENTANA = 680, 480
+ANCHO_VENTANA, ALTO_VENTANA = 900, 700
 
 VENTANA_PRINCIPAL = pygame.display.set_mode((ANCHO_VENTANA, ALTO_VENTANA))
 pygame.display.set_caption("Las aventuras de Juan")
@@ -25,7 +25,8 @@ while juego_terminado != True:
     VENTANA_PRINCIPAL.fill((255, 255, 255))
 
     #bloque.draw(VENTANA_PRINCIPAL)
-    escenario_inicio.draw(VENTANA_PRINCIPAL)
+    #escenario_inicio.draw(VENTANA_PRINCIPAL)
+    escenario_inicio.escenario.draw(VENTANA_PRINCIPAL)
 
     #cartero.draw(VENTANA_PRINCIPAL)
     cartero.update(VENTANA_PRINCIPAL)
